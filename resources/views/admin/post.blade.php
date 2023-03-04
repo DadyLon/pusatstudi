@@ -29,6 +29,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $no => $i )
+                            <tr>
+                                <td>{{ $i->id }}</td>
+                                <td>{{ $i->judul }}</td>
+                                <td>{{ $i->file }}</td>
+                                <form action="{{ route('post.destroy',$i->id) }}" method="POST">
+                                    <td>
+                                        <a href="{{ route('post.edit',$i->id) }}" class="btn btn-success"> Edit </a>
+
+                                         @csrf
+                                         @method('DELETE')
+                                        <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"> Delete </button>
+                                    </td>
+                                </form>
+
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -48,7 +65,7 @@
       <div class="modal-body">
         <form id="createForm" method="POST" enctype="multipart/form-data" action="{{ route('post.store') }}">
             @csrf
-            
+
         <div class="form-group">
             <label for="n">Judul</label>
             <input type="" required id="n" name="judul" class="form-control">
@@ -81,7 +98,7 @@
       <div class="modal-body">
       <form id="editForm" method="GET" enctype="multipart/form-data" action="">
             @csrf
-            
+
         <div class="form-group">
             <label for="n">Judul</label>
             <input type="hidden" required="" id="id" name="id" class="form-control">
@@ -130,20 +147,24 @@
 
 <script type="text/javascript">
 
+$(document).ready(function () {
+    $('.data-table').DataTable();
+});
+
   $(function () {
 
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('admin') }}/admin/post",
-        columns: [
-            {data: 'id' , name: 'id'},
-            {data: 'judul', name: 'judul'},
-            {data: 'file', name: 'file'},
-            {data: 'action', name: 'action', orderable: false, searchable: true},
-        ]
-    });
-  });
+//     var table = $('.data-table').DataTable({
+//         // processing: true,
+//         // serverSide: true,
+//         ajax: "{{ route('admin') }}/admin/post",
+//         columns: [
+//             {data: 'id' , name: 'id'},
+//             {data: 'judul', name: 'judul'},
+//             {data: 'file', name: 'file'},
+//             {data: 'action', name: 'action'},
+//         ]
+//     });
+//   });
 
 
 //     // Reset Form

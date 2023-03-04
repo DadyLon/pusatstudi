@@ -25,9 +25,9 @@ class PostController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
                         //    $btn = '<div class="row"><a href="javascript:void(0)" id="'.$row->id.'" class="btn btn-primary btn-sm ml-2 btn-edit">Edit</a>';
-                           $btn = '<a href="javascript:void(0)" id="'.$row->id.'" class="btn btn-danger btn-sm ml-2 btn-edit">Delete</a></div>';
+                        //    $btn = '<a href="javascript:void(0)" id="'.$row->id.'" class="btn btn-danger btn-sm ml-2 btn-edit">Delete</a></div>';
 
-                            return $btn;
+                            // return $btn;
                     })
 
                     ->rawColumns(['action'])
@@ -87,7 +87,7 @@ class PostController extends Controller
         // $data->save();
        $data = $this->validate($request,[
             'judul' => 'required',
-            'file' => 'required|mimes:docx,doc,pdf,xls,xlxs'
+            'file' => 'required|mimes:docx,doc,pdf,xls,xlsx'
         ]);
 
         $file = $request->file('file');
@@ -150,8 +150,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $id)
     {
-
+        $id->delete();
+        return redirect()->route('admin')->with('succes','Data Mahasiswa Berhasil di Hapus');
     }
 }
