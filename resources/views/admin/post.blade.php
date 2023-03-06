@@ -22,7 +22,6 @@
                 <table class="table table-bordered data-table">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>Judul</th>
                             <th>File</th>
                             <th>Action</th>
@@ -31,13 +30,15 @@
                     <tbody>
                         @foreach ($data as $no => $i )
                             <tr>
-                                <td>{{ $i->id }}</td>
+                                {{-- <td>{{ $i->id }}</td> --}}
                                 <td>{{ $i->judul }}</td>
                                 <td>{{ $i->file }}</td>
                                 <form action="{{ route('post.destroy',$i->id) }}" method="POST">
                                     <td>
-                                        <a href="{{ route('post.edit',$i->id) }}" class="btn btn-success"> Edit </a>
-
+                                        <a class="btn btn-success" action="{{ route('post.edit',$i->id) }}" data-toggle="modal" data-target="#edit-modal" method="P"> Edit </a>
+                                        {{-- <button type="button" href="{{ route('post.edit',$i->id) }}class="btn btn-success" data-toggle="modal" data-target="#create-modal">
+                                            Edit
+                                          </button> --}}
                                          @csrf
                                          @method('DELETE')
                                         <button class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"> Delete </button>
@@ -96,8 +97,9 @@
         </button>
       </div>
       <div class="modal-body">
-      <form id="editForm" method="GET" enctype="multipart/form-data" action="">
+      <form id="editForm" method="POST" enctype="multipart/form-data" action="{{ route('post.update',$i->id)}}">
             @csrf
+            @method('PUT')
 
         <div class="form-group">
             <label for="n">Judul</label>
@@ -151,7 +153,7 @@ $(document).ready(function () {
     $('.data-table').DataTable();
 });
 
-  $(function () {
+//   $(function () {
 
 //     var table = $('.data-table').DataTable({
 //         // processing: true,
@@ -257,6 +259,7 @@ $(document).ready(function () {
     //                           </button>
     //                         </div>`)
     // }
+
 
 </script>
 @endpush

@@ -10,7 +10,7 @@
       <img src="img/jumbotron1.png" class="img-fluid animated" alt="">
     </div>
     <div class="col-lg-6 pt-4 pt-lg-0">
-      <div id="summary">
+      <div id="summary" align="justify">
       <!-- <h2>Siapa Kita?</h2> -->
       <!-- <br> -->
       <p>
@@ -34,7 +34,7 @@
 <div class="row ">
 <div class="card col-md-4 col-xs-6">
 <img class="card-img-top" src="img/event/event.jpg" alt="Card image cap">
-<div class="card-body">
+<div class="card-body" align="justify">
   <p class="card-text">Bali International Field School (BIFSS) Ke-8 yang dilaksanakan di Jero Tumbuk, Karangasem. BIFSS ini bertujuan untuk Memperkenalkan sistem irigasi subak Bali kepada peserta, serta memperkenalkan konsep Tri Hita Karana yang diadopsikan pada subak Bali dan juga memperkenalkan Budaya Bali kepada para peserta BIFSS</p>
   <P>Konsep Tri Hita Karana yang ada pada subak adalah<span id="dotsevent">...</span>
   <span id="moreevent"><br>
@@ -49,7 +49,7 @@
 <div class="card col-md-4 col-xs-6">
 <img class="card-img-top" src="img/event/event2.jpg" alt="Card image cap">
 <div class="card-body">
-  <p class="card-text">Launching Website Desa Batuan dan Pura Puseh Batuan (<a href="http://batuan.id/"><u>batuan.id</u></a>), yang merupakan Website yang dikembangkan oleh Tim INSTIKI yang akan difungsikan untuk membantu mendigitalisasikan peninggalan sejaerah dan budaya di Desa Batuan serta Pura Puseh Batuan</p>
+  <p class="card-text" align="justify">Launching Website Desa Batuan dan Pura Puseh Batuan (<a href="http://batuan.id/"><u>batuan.id</u></a>), yang merupakan Website yang dikembangkan oleh Tim INSTIKI yang akan difungsikan untuk membantu mendigitalisasikan peninggalan sejaerah dan budaya di Desa Batuan serta Pura Puseh Batuan</p>
   <p>Launching ini bertepatan dengan peringatan 1000 Tahun ditulisnya Prasasti Batuan</p>
 </div>
 </div>
@@ -57,7 +57,7 @@
 <div class="card col-md-4 col-xs-6">
 <img class="card-img-top" src="img/event/event3.jpg" alt="Card image cap">
 <div class="card-body">
-<p class="card-text">Prasasti Baturan merupakan prasasti peninggalan dari pemerintahan Raja Bali Kuno yang ditulis oleh Srie Marakata dan Berangka Tahun 944 Saka atau 1022 Mahasehi yang hingga saat ini masih tersimpan di Pura Desa Puseh Adat Batuan bertepatan dengan hari Suci Saraswati, 22 Oktober 2022
+<p class="card-text" align="justify">Prasasti Baturan merupakan prasasti peninggalan dari pemerintahan Raja Bali Kuno yang ditulis oleh Srie Marakata dan Berangka Tahun 944 Saka atau 1022 Mahasehi yang hingga saat ini masih tersimpan di Pura Desa Puseh Adat Batuan bertepatan dengan hari Suci Saraswati, 22 Oktober 2022
 dilaksanakan pembacaan dari prasasti Baturan kembali dan pembuatan dokumentasi untuk prasasti tersebut.</p>
 </div>
 </div>
@@ -329,7 +329,7 @@ dilaksanakan pembacaan dari prasasti Baturan kembali dan pembuatan dokumentasi u
 
     <div class="swiper-slide">
       <div class="team-item">
-        <img src="img/team/dylon.JPG" class="team-img" alt="">
+        <img src="img/dok/dok1.JPG" class="team-img" alt="">
         <h3>Putu Wirayudi Aditama, S.Kom., M.Kom</h3>
         <!-- <h4></h4> -->
         <div class=" team-item-dosen">
@@ -613,7 +613,7 @@ dilaksanakan pembacaan dari prasasti Baturan kembali dan pembuatan dokumentasi u
 
     <div class="swiper-slide">
       <div class="team-item">
-        <img src="img/team/KP/kak wahyu.jpg" class="team-img" alt="">
+        <img src="img/team/KP/afreza.jpg" class="team-img" alt="">
         <h3>Afreza Mahdi</h3>
         <!-- <h4></h4> -->
         <div class=" team-item-dosen">

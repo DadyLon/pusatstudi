@@ -8,7 +8,9 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 
 use DataTables;
+use DB;
 use Hash;
+use File;
 
 class PostController extends Controller
 {
@@ -81,10 +83,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = new Post();
-        // $data->judul = $request->judul;
-        // $data->file = $request->file;
-        // $data->save();
+
        $data = $this->validate($request,[
             'judul' => 'required',
             'file' => 'required|mimes:docx,doc,pdf,xls,xlsx'
@@ -98,13 +97,6 @@ class PostController extends Controller
         $data->judul = $request->judul;
         $data->file = $nama_dokumen;
         $data->save();
-
-        // $data['judul'] = $judul;
-        // $data['file'] = $nama_dokumen;
-
-//         $post = new Post();
-// //        dd($post->save($data));
-//         $post->save($data);
 
         return back();
     }
@@ -126,9 +118,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $id)
     {
-        return response()->json($post);
+        $post = DB::table('post')->where('id', $id)->first();
+        return view('', compact('post'));
     }
 
     /**
@@ -140,8 +133,37 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post->update($request->all());
+        $this->validate($request, [
+            'judul' => 'required',
+            'file' => 'required|mimes:docx,doc,pdf,xls,xlsx'
+            ]);
+            $post = Post::findOrFail($post->id);
 
+            if($request->file('file') == "") {
+
+                $post->update([
+                    'judul'     => $request->judul,
+                    'file'   => $request->file
+                ]);
+
+            } else {
+
+                //hapus old file
+                Storage::disk('local')->delete('meta-data/'.$post->file);
+
+                //upload new file
+                $file = $request->file('file');
+                $file->storeAs('meta-data/', $file->getClientOriginalName());
+
+                $post->update([
+                    'judul'     => $request->judul,
+                    'file'     => $file->getClientOriginalName()
+                ]);
+
+            }
+            return redirect()->back();
+
+            // return redirect('admin.post')->with('status', 'Data Berhasil Diupdate   ');
     }
 
     /**
@@ -150,9 +172,16 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $id)
+    public function destroy($id)
     {
-        $id->delete();
-        return redirect()->route('admin')->with('succes','Data Mahasiswa Berhasil di Hapus');
+
+	$data = Post ::where('id',$id)->first();
+	File ::delete('meta-data/'.$data->file);
+
+	// hapus data
+	Post::where('id',$id)->delete();
+
+	return redirect()->back();
+
     }
 }

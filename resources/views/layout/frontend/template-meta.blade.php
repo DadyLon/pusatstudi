@@ -80,7 +80,7 @@
       <div class="row">
         <div class="col-lg-5 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>Pusat Studi Digitalisasi Budaya Bali</h1>
-          <p>Pusat Studi Digitalisasi Budaya Bali merupakan lintas keilmuan yang bergerak dalam merancang, meneliti, mengkaji dan mempublikasikan berbagai temuan berbasis budaya yang sejalan dengan visi dan misi dari Institut Bisnis dan Teknologi Indonesia.</p>
+          <p align="justify">Pusat Studi Digitalisasi Budaya Bali merupakan lintas keilmuan yang bergerak dalam merancang, meneliti, mengkaji dan mempublikasikan berbagai temuan berbasis budaya yang sejalan dengan visi dan misi dari Institut Bisnis dan Teknologi Indonesia.</p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn btn-outline-light scrollto">Get Started</a>
           </div>

@@ -36,21 +36,6 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin']
 	Route::resource('/user','UserController')->middleware(['can:admin']);
     Route::resource('/admin/post', 'PostController')->middleware(['can:admin']);
 
-    // Route::get('/user/usermeta-data', []'UserController')->name('usermeta-data'));
-
-	//Route View
-	Route::view('/404-page','admin.404-page')->name('404-page');
-	Route::view('/blank-page','admin.blank-page')->name('blank-page');
-	Route::view('/buttons','admin.buttons')->name('buttons');
-	Route::view('/cards','admin.cards')->name('cards');
-	Route::view('/utilities-colors','admin.utilities-color')->name('utilities-colors');
-	Route::view('/utilities-borders','admin.utilities-border')->name('utilities-borders');
-	Route::view('/utilities-animations','admin.utilities-animation')->name('utilities-animations');
-	Route::view('/utilities-other','admin.utilities-other')->name('utilities-other');
-	Route::view('/chart','admin.chart')->name('chart');
-	Route::view('/tables','admin.tables')->name('tables');
-	// Route::view('/post','admin.post')->name('post');
-
 
 });
 
@@ -58,9 +43,6 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'user'],
 	Route::get('/',[UserController::class,'index'])->name('user');
 	Route::get('/profile',[ProfileController::class,'index'])->name('profile');
     Route::get('/usermetadata',[PostController::class,'usermetadata'])->name('usermetadata');
-    // Route::get('/meta-data','App\Http\Controllers\Admin\PostController')->name('meta-data');
-	Route::view('geopark','user.geopark')->name('geopark');
-	Route::view('batuan','user.batuan')->name('batuan');
 	Route::patch('/profile/update/{user}',[ProfileController::class,'update'])->name('profile.update');
 });
 
